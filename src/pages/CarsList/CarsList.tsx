@@ -5,6 +5,8 @@ import { useGetCars } from "src/services/useGetCars";
 
 import CarsListElement from "./components/CarsListElement";
 
+import { Car } from "src/models/Car";
+
 function CarsList() {
   const { data: cars } = useGetCars();
 
@@ -15,9 +17,9 @@ function CarsList() {
       </Typography>
 
       <Grid2 container spacing={1}>
-        <CarsListElement />
-        <CarsListElement />
-        <CarsListElement />
+        {cars?.map((car: Car) => (
+          <CarsListElement key={car.id} car={car} />
+        ))}
       </Grid2>
     </Container>
   );
