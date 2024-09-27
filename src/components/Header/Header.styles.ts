@@ -3,7 +3,12 @@ export const styles = {
     display: "flex",
     alignItems: "center",
     borderBottom: "2px solid #444444",
+    position: "fixed",
+    left: 0,
+    width: "100%",
     p: 2,
+    backgroundColor: "#111111",
+    zIndex: 1,
   },
   headerInner: {
     display: "flex",
