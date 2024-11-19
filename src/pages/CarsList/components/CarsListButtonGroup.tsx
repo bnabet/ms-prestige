@@ -39,7 +39,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 export default function CarsListButtonGroup() {
   const [category, setCategory] = useState("all");
 
-  const handleAlignment = (event: React.MouseEvent<HTMLElement>, newCategory: string) => {
+  const handleAlignment = (_event: React.MouseEvent<HTMLElement>, newCategory: string) => {
     setCategory(newCategory);
   };
 
