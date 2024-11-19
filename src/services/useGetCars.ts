@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
 async function fetchCars() {
-  const response = await fetch("/api/cars");
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+  const response = await fetch(`${apiBaseUrl}/api/cars`);
 
   if (!response.ok) {
     throw new Error("Network response was not ok");

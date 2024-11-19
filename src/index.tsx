@@ -15,15 +15,17 @@ const queryClient = new QueryClient({
     queries: {
       // suspense: true,
       staleTime: 1000 * 60,
-      refetchOnWindowFocus: false, // true in production !
+      refetchOnWindowFocus: import.meta.env.DEV ? false : true,
     },
   },
 });
 
+const basename = import.meta.env.DEV ? "/" : "/ms-prestige/";
+
 createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={queryClient}>
     <ModalProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <App />
