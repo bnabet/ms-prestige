@@ -47,7 +47,8 @@ const theme = createTheme({
       WebkitTextSizeAdjust: "100%",
     },
     h1: {
-      fontSize: 36,
+      fontFamily: "Merriweather",
+      fontSize: 40,
       fontWeight: 600,
       lineHeight: "56px",
     },
@@ -72,7 +73,6 @@ const theme = createTheme({
     h6: {
       fontSize: 14,
       fontWeight: 500,
-      lineHeight: "19px",
     },
   },
   components: {
@@ -80,7 +80,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           "&.MuiContainer-maxWidthLg": {
-            maxWidth: "1400px",
+            maxWidth: "1500px",
           },
         },
       },
@@ -89,6 +89,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           "textTransform": "none",
+          "boxShadow": "none",
+          "&:hover": {
+            boxShadow: "none",
+          },
           "&:focus": {
             outline: "none",
           },
@@ -116,6 +120,30 @@ const theme = createTheme({
         colorInfo: {
           backgroundColor: "#333333",
           color: "#f5f5f5",
+        },
+      },
+    },
+    MuiModal: {
+      styleOverrides: {
+        root: {
+          ".MuiBackdrop-root": {
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+          },
+
+          "> .MuiBox-root": {
+            "display": "flex",
+            "backgroundColor": "#222222",
+            "border": 0,
+            "borderRadius": "4px",
+            "overflow": "hidden",
+            "boxShadow": "0px 4px 4px rgba(0, 0, 0, 0.25)",
+            "width": "100%",
+            "minHeight": "800px",
+            "maxWidth": "80%",
+            "&:focus": {
+              outline: "none",
+            },
+          },
         },
       },
     },
