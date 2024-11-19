@@ -8,6 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { styles } from "./CarsListElement.styles";
 
 import { Car } from "src/models/Car";
+import { Link } from "react-router-dom";
 
 interface CarsListElementProps {
   car: Car;
@@ -16,48 +17,50 @@ interface CarsListElementProps {
 function CarsListElement({ car }: CarsListElementProps) {
   return (
     <Grid2 className="CarsListElement" size={{ md: 12, lg: 6 }} sx={styles.element}>
-      <Box sx={styles.elementInner}>
-        <Box
-          sx={{
-            ...styles.elementImage,
-            backgroundImage: `url(src/assets/cars/${car.imagesUrls[0]}.jpg)`,
-          }}
-        />
+      <Link to={`/car/${car._id}`} style={{ textDecoration: "none", color: "inherit" }}>
+        <Box sx={styles.elementInner}>
+          <Box
+            sx={{
+              ...styles.elementImage,
+              backgroundImage: `url(src/assets/cars/${car.imagesUrls[0]}.jpg)`,
+            }}
+          />
 
-        <Grid2 size={{ xs: 12, md: 6 }} sx={styles.elementContent}>
-          <Typography variant="h4" sx={{ textTransform: "uppercase" }}>
-            {car.brand} {car.model} {car.trimLevel}
-          </Typography>
-
-          <Box sx={{ display: "flex", gap: 1 }}>
-            <Chip label={`${car.seats} places`} color="info" size="small" icon={<PersonIcon />} />
-            <Chip label={`${car.power} ch`} color="info" size="small" icon={<SpeedIcon />} />
-          </Box>
-
-          <Typography sx={{ marginBottom: "auto" }}>{car.description}</Typography>
-
-          <Typography variant="h2">
-            {car.rentalPricePerDay.toString().split(".")[0]}
-            <Typography variant="h5" component="span">
-              .{car.rentalPricePerDay.toString().split(".")[1]}
+          <Grid2 size={{ xs: 12, md: 6 }} sx={styles.elementContent}>
+            <Typography variant="h4" sx={{ textTransform: "uppercase" }}>
+              {car.brand} {car.model} {car.trimLevel}
             </Typography>
-            <Typography component="span" color="grey.600" sx={{ ml: "4px", fontWeight: 500 }}>
-              € /jour
-            </Typography>
-          </Typography>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: "4px" }}>
-            {car.unlimitedMileage ? (
-              <CheckIcon color="success" fontSize="small" />
-            ) : (
-              <CloseIcon color="error" fontSize="small" />
-            )}
-            <Typography sx={{ fontSize: 12 }}>
-              Kilométrage illimité {!car.unlimitedMileage && "non"} disponible
+            <Box sx={{ display: "flex", gap: 1 }}>
+              <Chip label={`${car.seats} places`} color="info" size="small" icon={<PersonIcon />} />
+              <Chip label={`${car.power} ch`} color="info" size="small" icon={<SpeedIcon />} />
+            </Box>
+
+            <Typography sx={{ marginBottom: "auto" }}>{car.description}</Typography>
+
+            <Typography variant="h2">
+              {car.rentalPricePerDay.toString().split(".")[0]}
+              <Typography variant="h5" component="span">
+                .{car.rentalPricePerDay.toString().split(".")[1]}
+              </Typography>
+              <Typography component="span" color="grey.600" sx={{ ml: "4px", fontWeight: 500 }}>
+                € /jour
+              </Typography>
             </Typography>
-          </Box>
-        </Grid2>
-      </Box>
+
+            <Box sx={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              {car.unlimitedMileage ? (
+                <CheckIcon color="success" fontSize="small" />
+              ) : (
+                <CloseIcon color="error" fontSize="small" />
+              )}
+              <Typography sx={{ fontSize: 12 }}>
+                Kilométrage illimité {!car.unlimitedMileage && "non"} disponible
+              </Typography>
+            </Box>
+          </Grid2>
+        </Box>
+      </Link>
     </Grid2>
   );
 }
