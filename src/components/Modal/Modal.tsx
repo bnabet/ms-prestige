@@ -44,7 +44,7 @@ export default function BasicModal() {
         <Box
           sx={{
             ...styles.elementImage,
-            backgroundImage: `url(src/assets/cars/${modal.content.imagesUrls[0]}.jpg)`,
+            backgroundImage: `url(src/assets/cars/${modal.content.images[0]}.jpg)`,
           }}
         />
 

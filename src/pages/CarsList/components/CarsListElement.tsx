@@ -5,6 +5,8 @@ import SpeedIcon from "@mui/icons-material/Speed";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 
+import { getImageUrl } from "src/utils/imageLoader";
+
 import { styles } from "./CarsListElement.styles";
 
 import { Car } from "src/models/Car";
@@ -22,7 +24,7 @@ function CarsListElement({ car }: CarsListElementProps) {
           <Box
             sx={{
               ...styles.elementImage,
-              backgroundImage: `url(src/assets/cars/${car.imagesUrls[0]}.jpg)`,
+              backgroundImage: `url(${getImageUrl(car.images[0])})`,
             }}
           />
 

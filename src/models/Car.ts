@@ -10,6 +10,6 @@ export interface Car {
   status: string;
   rentalPricePerDay: number;
   description: string;
-  imagesUrls: string[];
+  images: string[];
   unlimitedMileage: boolean;
 }
